@@ -1,0 +1,25 @@
+.navbarComponent {
+    /* background-color: blue; */
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid #181600;
+}
+
+.searchComponent {
+    max-width: 300px;
+    /* height: 30px; */
+    width: 100%;
+}
+
+.nav-item a {
+    color: #181600;
+    border-radius: 20px;
+    background-color: transparent;
+}
+.nav-item a.active {
+    font-weight: bold;
+    transition: .1s ease-out;
+    color: white;
+    background-color: #181600;
+    border-radius: 10px;
+}

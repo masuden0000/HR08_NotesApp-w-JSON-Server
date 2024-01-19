@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "title": "Hari pertama kerja (update)",
+      "body": "- saya mendapat catatan baik dari atasan (update)",
+      "createdAt": "2024-01-19T02:53:54.929Z",
+      "archived": true,
+      "id": "da4aae75-3548-42ee-8f7b-4cb0f926c40d"
+    },
+    {
+      "id": "91448f83-0133-4168-a82e-91a225ae4f63",
+      "title": "ss",
+      "body": "ss",
+      "createdAt": "2024-01-19T10:18:51.394Z",
+      "archived": true
+    },
+    {
+      "id": "0ade3ad0-6598-4b13-a068-272a79834775",
+      "title": "sadasda",
+      "body": "sdasdasa",
+      "createdAt": "2024-01-19T10:46:14.250Z",
+      "archived": false
+    }
+  ]
+}

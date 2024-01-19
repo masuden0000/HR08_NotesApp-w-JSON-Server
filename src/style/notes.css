@@ -1,0 +1,32 @@
+.headerCard {
+    border-bottom: 2px solid #181600;
+}
+
+.buttonDefault {
+    max-width: 150px;
+    width: 100%;
+}
+
+.notes {
+    height: 100%;
+}
+
+.labelForm {
+    min-width: 10%;
+}
+
+.textArea {
+    height: 400px;
+}
+
+.emptyNote {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+
+.emptyNote h3 {
+    font-weight: bold;
+}
