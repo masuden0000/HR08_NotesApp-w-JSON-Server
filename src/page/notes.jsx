@@ -1,23 +1,25 @@
 import { format, parseISO } from "date-fns";
 import { id } from "date-fns/locale";
 import React, { useEffect, useState } from "react";
-import Swal from 'sweetalert2'
-import ButtonAdd from "../component/buttonAdd";
+import Swal from "sweetalert2";
 import ButtonDefault from "../component/buttonDefault";
 import "../style/notes.css";
 
 const AllNotes = () => {
     const [notes, setNotes] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState("");
 
     const fetchData = async () => {
         try {
-            const response = await fetch("http://localhost:8989/posts?archived=false", {
-                method: "GET",
-                headers: {
-                    'Content-Type': 'application/json'
+            const response = await fetch(
+                "http://localhost:8989/posts?archived=false",
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
                 }
-            });
+            );
             const data = await response.json();
 
             setNotes(data);
@@ -35,13 +37,13 @@ const AllNotes = () => {
 
     const deleteNotes = async (id) => {
         const shouldDelete = await Swal.fire({
-            title: 'Are you sure you want to delete?',
+            title: "Are you sure you want to delete?",
             text: "This action will delete your notes",
-            icon: 'warning',
+            icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: '#0b5ed7',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonColor: "#0b5ed7",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
         });
 
         if (shouldDelete.isConfirmed) {
@@ -49,18 +51,18 @@ const AllNotes = () => {
                 await fetch(`http://localhost:8989/posts/${id}`, {
                     method: "DELETE",
                     headers: {
-                        'Content-Type': 'application/json'
-                    }
+                        "Content-Type": "application/json",
+                    },
                 });
                 fetchData();
-                Swal.fire(
-                    'Catatan Terhapus!',
-                    'Catatan berhasil dihapus.',
-                    'success'
-                );
+                Swal.fire("Catatan Terhapus!", "Catatan berhasil dihapus.", "success");
             } catch (error) {
                 console.error("Error delete data:", error);
-                Swal.fire('Gagal!', 'Terjadi kesalahan saat menghapus catatan.', 'error');
+                Swal.fire(
+                    "Gagal!",
+                    "Terjadi kesalahan saat menghapus catatan.",
+                    "error"
+                );
             }
         }
     };
@@ -87,14 +89,14 @@ const AllNotes = () => {
             Swal.fire({
                 title: "Berhasil",
                 text: "Catatan-mu berhasil diperbarui",
-                icon: "success"
+                icon: "success",
             });
         } catch (error) {
             console.error("Error saving notes:", error);
             Swal.fire({
                 title: "Gagal",
                 text: "Catatan-mu tidak tersimpan",
-                icon: "success"
+                icon: "success",
             });
         }
     };
@@ -106,7 +108,14 @@ const AllNotes = () => {
 
     return (
         <div className="container mt-4 p-0">
-            <ButtonAdd target="/add" />
+            <ButtonDefault
+                name="button"
+                style="btn btn-primary"
+                icon="fa-solid fa-plus"
+                text="Add Notes"
+                target="/add"
+                styleContainer="text-start mb-4"
+            />
             {notes.length === 0 ? (
                 <div className="emptyNote">
                     <h3>Empty Note</h3>
@@ -133,7 +142,11 @@ const AllNotes = () => {
                                             icon="fa-solid fa-pen"
                                             text="Update"
                                         />
-                                        <button onClick={() => deleteNotes(note.id)} type="button" className="btn btn-danger">
+                                        <button
+                                            onClick={() => deleteNotes(note.id)}
+                                            type="button"
+                                            className="btn btn-danger"
+                                        >
                                             <i className="fa-solid fa-trash me-2"></i>
                                             Delete
                                         </button>
